@@ -1,8 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Mikhail_Churakov on 5/9/2017.
  */
@@ -11,6 +13,8 @@ public class LoginTests extends TestBase {
     @BeforeMethod
     public void beforeMethod() {
         driver.navigate().to(testHost);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@class='fa fa-user']")));
         driver.findElement(By.xpath("//i[@class='fa fa-user']")).click();
     }
 

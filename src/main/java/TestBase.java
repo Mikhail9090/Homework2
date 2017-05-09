@@ -16,7 +16,7 @@ public abstract class TestBase {
     public void beforeSuite() {
         System.setProperty("webdriver.gecko.driver", geckoDrivPath);
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
     @AfterSuite
