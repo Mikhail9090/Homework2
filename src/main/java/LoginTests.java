@@ -30,22 +30,19 @@ public class LoginTests extends TestBase {
         driver.findElement(By.id("Password")).click();
         driver.findElement(By.id("Password")).sendKeys(password);
         driver.findElement(By.xpath("//i[@class='fa fa-sign-in']")).click();
-        String testName = driver.findElement(By.xpath("//span[contains(text(),'Piter Chailovskii')]")).getText();
-        if (userName.equals(testName))
-            driver.findElement(By.xpath("//i[@class='fa fa-sign-out']")).click();
+        driver.findElement(By.xpath("//span[contains(text(),'Piter Chailovskii')]"));
+        driver.findElement(By.xpath("//i[@class='fa fa-sign-out']")).click();
     }
 
-    @Test(dataProvider = "incorrectData", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "incorrectDataCsv", dataProviderClass = DataProviders.class)
     public void negLogin(String loginName, String password) {
         driver.findElement(By.id("Login")).click();
         driver.findElement(By.id("Login")).sendKeys(loginName);
         driver.findElement(By.id("Password")).click();
         driver.findElement(By.id("Password")).sendKeys(password);
         driver.findElement(By.xpath("//i[@class='fa fa-sign-in']")).click();
-        String testText = driver.findElement(By.xpath("//span[@class='login-txt']")).getText();
-        if (testText.equals("* Login Faild")) {
-            driver.findElement(By.id("Login")).clear();
-            driver.findElement(By.id("Password")).clear();
-        }
+        driver.findElement(By.xpath("//span[@class='login-txt']"));
+        driver.findElement(By.id("Login")).clear();
+        driver.findElement(By.id("Password")).clear();
     }
 }
